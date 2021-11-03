@@ -15,14 +15,13 @@ class CreateOrganisationsTable extends Migration
     {
         Schema::create('organisations', function (Blueprint $table) {
             $table->string('name');
-            $table->string('organisation');
             $table->string('head_of_department');
             $table->string('postal_address');
             $table->unsignedInteger('telephone');
             $table->unsignedInteger('fax');
             $table->string('physical_address');
             $table->timestamps();
-            $table->primary(['organisation','physical_address']);
+            $table->primary(['name','physical_address']);
 
         });
     }

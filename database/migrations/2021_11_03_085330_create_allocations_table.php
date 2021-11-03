@@ -17,6 +17,7 @@ class CreateAllocationsTable extends Migration
             $table->unsignedInteger('internID');
             $table->unsignedInteger('placementOfficerID');
             $table->string('organisation');
+            $table->foreign('organisation')->references('name')->on('organisations')->onDelete('cascade');
             $table->date('start_date');
             $table->string('area/place of allocation');
             $table->dateTime('date_time');

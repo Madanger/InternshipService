@@ -13,17 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('placementOfficers', function (Blueprint $table) {
-            $table->unsignedInteger('omangID');
-            $table->unsignedInteger('employeeID')->unique();
-            $table->string('firstName');
-            $table->string('lastName');
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->primary('omangID');
         });
 
         
@@ -38,6 +35,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('placementOfficers');
+        Schema::dropIfExists('users');
     }
 }

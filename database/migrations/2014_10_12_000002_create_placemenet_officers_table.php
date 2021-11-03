@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInternsTable extends Migration
+class CreatePlacemenetOfficersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,18 @@ class CreateInternsTable extends Migration
      */
     public function up()
     {
-        Schema::create('interns', function (Blueprint $table) {
+        Schema::create('placementOfficers', function (Blueprint $table) {
             $table->unsignedInteger('omangID');
+            $table->unsignedInteger('employeeID')->unique();
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('gender');
-            $table->string('maritalStatus');
-            $table->unsignedInteger('telephone');
-            $table->unsignedInteger('fax');
-            $table->string('correspondenceAddress');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->primary('omangID');
             $table->rememberToken();
             $table->timestamps();
+            $table->primary('omangID');
         });
-
-        
     }
 
     /**
@@ -40,6 +34,6 @@ class CreateInternsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interns');
+        Schema::dropIfExists('placemenet_officers');
     }
 }

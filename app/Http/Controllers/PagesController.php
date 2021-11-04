@@ -24,7 +24,7 @@ class PagesController extends Controller
     }
 
     public function apply(){
-        return view('pages.apply');
+        return view('pages.intenship');
     }
 
     public function register(){
